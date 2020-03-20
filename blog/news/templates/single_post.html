@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    single post
+{% endblock  %}
+
+{% block content %}
+
+    <div>
+        <h2>{{newspost.title}}</h2>
+        <p>{{newspost.content}}</p>
+        <p>Author by ---> {{newspost.author}}</p>
+    </div>
+{% endblock  %}

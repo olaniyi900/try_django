@@ -3,5 +3,12 @@
   Home Page
 {% endblock  %}
 {% block content %}
-  <h1>Welcome to home page</h1>
+  <h1>Welcome to home page {{ user }}</h1>
+   <p>{{ title }}</p>
+   <p>List of friend</p>
+   <ol>
+    {% for f in frd_list %}
+      <li>{{ f }} </li>
+    {% endfor %}
+   </ol>
 {% endblock  %}
