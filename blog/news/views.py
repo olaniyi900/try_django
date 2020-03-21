@@ -21,6 +21,11 @@ def single_post(request, post_id):
 
 
 def create_post(request):
-    template_name = "create_post.html"
-    
+    form = PostForm(request.POST)
+    if form.is_valid():
+        obj = NewsPost.objects.create(**form.cleaned_data)
+        
+        form = PostForm()
+    template_name = "create.html"
+    context = {"form": form}
     return render(request, template_name, context)
