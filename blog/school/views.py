@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Student
-from .forms import StudentForm
+from .forms import StudentModelForm
 
 
 # Create your views here.
@@ -15,11 +15,13 @@ def home(request):
 
 
 def create_student(request):
-    form = StudentForm(request.POST)
+    form = StudentModelForm(request.POST)
     if form.is_valid():
-        obj = Student.objects.create(**form.cleaned_data)
+        #unpack the dictinary for forms.Form
+        # by using Student.objects.create(**form.cleaned_data)
+        form.save() #use save for modelform
         print(form.cleaned_data)
-        form = StudentForm()
+        form = StudentModelForm()
         return redirect('/schools/')
     template_name = 'school/create.html'
     context = {
