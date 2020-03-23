@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from .models import Student
 from .forms import StudentModelForm
-from django.views.generic import ListView, DetailView
+from django.views.generic import (ListView, 
+                DetailView, 
+                CreateView, 
+                UpdateView,
+                DeleteView)
 
 
 # Create your views here.
@@ -38,7 +43,17 @@ class StudentListView(ListView):
 class StudentDetailView(DetailView):
     model = Student
 
-    # def get_object(self):
-    #     obj = super().get_object()
-    #     obj = self.pk
-    #     return obj
+
+class StudentCreateView(CreateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'age']
+
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'age']
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    success_url = reverse_lazy('students')
+    
