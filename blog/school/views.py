@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Student
 from .forms import StudentModelForm
+from django.views.generic import ListView, DetailView
 
 
 # Create your views here.
@@ -28,3 +29,16 @@ def create_student(request):
         "form": form
     }
     return render(request, template_name, context)
+
+
+# class base view to list all the object in the data base
+class StudentListView(ListView):
+    model = Student
+
+class StudentDetailView(DetailView):
+    model = Student
+
+    # def get_object(self):
+    #     obj = super().get_object()
+    #     obj = self.pk
+    #     return obj
