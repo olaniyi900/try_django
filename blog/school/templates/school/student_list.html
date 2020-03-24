@@ -1,6 +1,12 @@
 {% extends 'base.html' %} {% block title_block %} school home page {% endblock %} {% block content %}
 <h1>Welcome to school management</h1>
 <p>List of student in our school</p>
+{% if messages %}
+    {% for message in messages  %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+ <div class="alert alert-success">Success</div>
 <table class="table table-striped table-hover">
     <thead class="thead-dark">
         <tr>
