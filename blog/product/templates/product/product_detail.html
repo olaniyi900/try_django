@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block titlt_block %}
+    {{ product.name }}
+{% endblock  %}
+
+{% block content %}
+    <div class="jumbotron mt-2">
+        <h1 class="display-4">{{ product.name }}</h1>
+        <p class="lead">{{ product.description }}</p>
+        <hr class="my-4">
+        <p>Quantity: {{ product.quantity }}</p>
+        <p>&#8358;{{ product.price }}</p>
+    </div>
+{% endblock  %}

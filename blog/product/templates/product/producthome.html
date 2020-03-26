@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title_block %}
+product page
+{% endblock  %}
+{% block content %}
+    <h1>Welcome to product page</h1>
+    
+    <div class="row row-cols-4 my-4">
+        {% for product in products %}
+        <div class="card col m-4" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">{{ product.name | title }}</h5>
+        <p class="card-text">{{ product.description | truncatewords:6 }}</p>
+        <p>Quantity: {{ product.quantity }}</p>
+        <a href="{% url 'product_detail' product.id %}" class="card-link btn btn-primary">Product Detail</a>
+        <p>&#8358;{{ product.price | floatformat:2 }}</p>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+{% endblock  %}
