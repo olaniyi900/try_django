@@ -58,10 +58,11 @@ def product_update(request, p_id):
 
 def product_delete(request, p_id):
     qs = Product.objects.get(pk=p_id)
-    
+    qs.delete()
+        
     template_name = 'product/product_delete.html'
     context = {
-        'product': qs
-    }
-    
+            'product': qs
+        }
+
     return render(request, template_name, context)
