@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title_block %}
+delete product
+{% endblock  %}
+{% block content %}
+    <div class="jumbotron mt-2">
+        <h1 class="display-4">{{ product.name }}</h1>
+        <p class="lead">{{ product.description }}</p>
+        <hr class="my-4">
+        <p>Quantity: {{ product.quantity }}</p>
+        <p>&#8358;{{ product.price }}</p>
+        <a href="{% url 'product_home' %}" class="btn btn-primary">Cancel</a>
+        <a href="{% url 'product_home' %}" class="btn btn-danger">Delete</a>
+    </div>
+{% endblock  %}

@@ -54,3 +54,14 @@ def product_update(request, p_id):
     context = {'form': form}
         
     return render(request, template_name, context)
+
+
+def product_delete(request, p_id):
+    qs = Product.objects.get(pk=p_id)
+    
+    template_name = 'product/product_delete.html'
+    context = {
+        'product': qs
+    }
+    
+    return render(request, template_name, context)
